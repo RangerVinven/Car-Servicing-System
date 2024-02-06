@@ -1,8 +1,8 @@
-# Car Servicing System
+# Car Servicing System
 
 A group college project for a car servicing system
 
-### Contributors:
+### Contributors:
 
 * Daniel McPherson
 * Nicol Buchan
