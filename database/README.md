@@ -3,7 +3,7 @@
 To create the database, go to this folder in the terminal:
 
 1. Run "docker build -t car-service-db ./"
-2. Run "docker run car-service-db"
+2. Run "docker run -p 3306:3306 car-service-db"
 
 To stop the database, run:
 
