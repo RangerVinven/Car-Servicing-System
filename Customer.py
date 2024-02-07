@@ -32,15 +32,16 @@ class Customer:
             surname = input("Please enter your surname: ").lower()
             cursor.execute("SELECT * FROM customer WHERE forname=%s AND surname=%s;", (forname,surname))
 
-
+            # If multiple customers exist with the firstname and surname
             customers = cursor.fetchall()
             if len(customers) > 1:
                 phoneNo = input("Please enter your phone number: ").lower().replace("\r", "")
                 cursor.execute("SELECT * FROM customer WHERE forname=%s AND surname=%s AND phoneNo=%s;", (forname,surname, phoneNo))
 
+                # There's aren't customers matching that firstname, surname and phone number
                 customers = cursor.fetchall()
                 if len(customers) == 0:
-                    print("No customers with that firstname and surname exists")
+                    print("No customers with those details")
                 
                 else:
                     print(customers)
