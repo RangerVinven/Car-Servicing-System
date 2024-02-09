@@ -27,7 +27,7 @@ CREATE TABLE `car` (
   `make` varchar(25) DEFAULT NULL,
   `model` varchar(20) DEFAULT NULL,
   `year` int DEFAULT NULL,
-  `customerID` varchar(4) DEFAULT NULL,
+  `customerID` int DEFAULT NULL,
   PRIMARY KEY (`regNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,13 +50,12 @@ DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
-  `customerID` varchar(4) NOT NULL,
+  `customerID` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `forname` varchar(20) DEFAULT NULL,
   `surname` varchar(20) DEFAULT NULL,
   `address` varchar(50) DEFAULT NULL,
   `postcode` varchar(10) DEFAULT NULL,
-  `phoneNo` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`customerID`)
+  `phoneNo` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
