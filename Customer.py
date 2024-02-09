@@ -1,7 +1,7 @@
 from Database import cursor, db
 
 class Customer:
-    def __init__(self,customerID,forname,surname,address,postcode,phoneNo):
+    def __init__(self,forname,surname,address,postcode,phoneNo,customerID=None):
         self.customerID = customerID
         self.forname = forname
         self.surname = surname
