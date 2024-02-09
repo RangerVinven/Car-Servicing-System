@@ -11,6 +11,12 @@ class Customer:
 
     @staticmethod
     def addCustomer(customer):
+        # Ensures there's not a customer with the same phone number
+        cursor.execute("SELECT customerID FROM customer WHERE phoneNo=%s", (customer.phoneNo.replace(" ", ""),))
+        if len(cursor.fetchall()) != 0:
+            print("A customer with that phone number already exists")
+            return
+
         cursor.execute("INSERT INTO customer(forname, surname, address, postcode, phoneNo) VALUES (%s,%s,%s,%s,%s);", (customer.forname, customer.surname, customer.address, customer.postcode, customer.phoneNo.replace(" ", "")))
         db.commit()
 
@@ -19,6 +25,9 @@ class Customer:
         cursor.execute("DELETE FROM customer WHERE customerID=%s", (customerID,))
         db.commit()
 
+    # Finds the customer's information based off their forename
+    # If there's multiple customers with that forename, then it asks for the surname,
+    # If there's still multiple customers, then it asks for the phone number
     @staticmethod
     def searchCustomer():
         #  forname > Surname > Phone number
