@@ -21,6 +21,11 @@ class Customer:
         db.commit()
 
     @staticmethod
+    def editCustomer(customer):
+        cursor.execute("UPDATE customer SET forname=%s, surname=%s, address=%s, postcode=%s, phoneNo=%s WHERE forname=%s AND surname=%s AND postcode=%s AND phoneNo=%s;", (customer.forname, customer.surname, customer.address, customer.postcode, customer.phoneNo, customer.forname, customer.surname, customer.postcode, customer.phoneNo))
+        db.commit()
+
+    @staticmethod
     def deleteCustomer(customerID):
         cursor.execute("DELETE FROM customer WHERE customerID=%s", (customerID,))
         db.commit()
